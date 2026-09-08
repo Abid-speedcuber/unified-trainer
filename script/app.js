@@ -748,13 +748,7 @@ function timerBeginTouch(spaceEquivalent) {
     if (document.activeElement === filterInputEl) return;
     if (isRunning) {
         stopTimer();
-        if (trainerMode === 'obl') {
-            obl.oblSetScrambleOffset(0);
-            obl.oblGenerateScramble();
-        } else {
-            pbl.pblSetOffset(pbl.pblOffset - 1);
-            pbl.pblGenerateScramble();
-        }
+        nextScram();
         if (!spaceEquivalent) otherKeyPressed += 1;
     } else if (spaceEquivalent && otherKeyPressed <= 0) {
         if (!pressStartTime) {
